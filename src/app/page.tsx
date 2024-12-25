@@ -13,6 +13,85 @@ const DECK_SLIDES = [
   '/images/GLOBAL-MUSIC-COMMUNITY-MNGRS.AI-VC-2024_Page_20-scaled.jpg',
 ];
 
+const TeamSection = () => {
+  const teamMembers = [
+    {
+      name: 'Alexandre DENIOT',
+      title: 'Co-founder & CEO',
+      role: 'Artist Manager',
+      description: "Former Midem CEO (World's leading music conference) and Universal Music Exec.",
+      image: '/images/team/alex.jpg'
+    },
+    {
+      name: 'Thomas QUENOIL',
+      title: 'Co-founder & COO',
+      description: 'Former Midem, Universal Music and Sony Music Exec.',
+      image: '/images/team/thomass.jpg'
+    },
+    {
+      name: 'Hippolyte BRINGER',
+      title: 'Founding CTO',
+      role: 'Fullstack Developer',
+      description: 'Former IT Quant at Natixis and Software Engineer at Ardian',
+      image: '/images/team/hypolite.jpg'
+    }
+  ];
+
+  const advisors = [
+    {
+      name: 'Ty Roberts',
+      description: 'ex-Global CTO Universal Music & Advisor of Jay Z for Tidal'
+    },
+    {
+      name: 'Stephen Budd',
+      description: 'Artist and Producer Manager - ex-Chairman Music Managers Forum'
+    }
+  ];
+
+  return (
+    <section className="bg-white rounded-3xl p-8 shadow-sm">
+      <h2 className="text-xl text-gray-500 mb-8">Team</h2>
+      
+      <div className="space-y-8">
+        {teamMembers.map((member, index) => (
+          <div key={index} className="flex items-start gap-4">
+            <div className="w-16 h-16 rounded-full overflow-hidden relative flex-shrink-0">
+              <Image
+                src={member.image}
+                alt={member.name}
+                fill
+                sizes="64px"
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div>
+              <h3 className="text-[#4475F2] font-medium">{member.name}</h3>
+              <p className="text-gray-700">{member.title}</p>
+              {member.role && (
+                <p className="text-gray-500 text-sm">{member.role}</p>
+              )}
+              <p className="text-gray-500 text-sm">{member.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-12">
+        <h2 className="text-xl text-gray-500 mb-6">Advisors</h2>
+        <div className="space-y-4">
+          {advisors.map((advisor, index) => (
+            <div key={index} className="flex gap-2">
+              <span className="text-[#4475F2]">{advisor.name}:</span>
+              <span className="text-gray-500">{advisor.description}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default function Page() {
   const [slide, setSlide] = useState(0);
 
@@ -66,86 +145,7 @@ export default function Page() {
         </div>
 
         {/* Team Section */}
-        <div className="bg-white rounded-3xl p-8 shadow-sm">
-          <h2 className="text-xl text-gray-500 mb-8">Team</h2>
-          
-          <div className="space-y-8">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-full overflow-hidden relative">
-                <Image
-                  src="/images/alex.jpg"
-                  alt="Alexandre DENIOT"
-                  fill
-                  sizes="64px"
-                  className="object-cover"
-                  priority
-                />
-              </div>
-              <div>
-                <h3 className="text-[#4475F2] font-medium">Alexandre DENIOT</h3>
-                <p className="text-gray-700">Co-founder & CEO</p>
-                <p className="text-gray-500 text-sm">
-                  Former Midem CEO (World's leading music conference) and Universal Music Exec.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-full overflow-hidden relative">
-                <Image
-                  src="/images/thomass.jpg"
-                  alt="Thomas QUENOIL"
-                  fill
-                  sizes="64px"
-                  className="object-cover"
-                  priority
-                />
-              </div>
-              <div>
-                <h3 className="text-[#4475F2] font-medium">Thomas QUENOIL</h3>
-                <p className="text-gray-700">Co-founder & COO</p>
-                <p className="text-gray-500 text-sm">
-                  Former Midem, Universal Music and Sony Music Exec.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-full overflow-hidden relative">
-                <Image
-                  src="/images/hypolite.jpg"
-                  alt="Hippolyte BRINGER"
-                  fill
-                  sizes="64px"
-                  className="object-cover"
-                  priority
-                />
-              </div>
-              <div>
-                <h3 className="text-[#4475F2] font-medium">Hippolyte BRINGER</h3>
-                <p className="text-gray-700">Founding CTO</p>
-                <p className="text-gray-500 text-sm">
-                  Fullstack Developer<br />
-                  Former IT Quant at Natixis and Software Engineer at Ardian
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12">
-            <h2 className="text-xl text-gray-500 mb-6">Advisors</h2>
-            <ul className="space-y-4">
-              <li className="flex gap-2">
-                <span className="text-[#4475F2]">Ty Roberts:</span>
-                <span className="text-gray-500">ex-Global CTO Universal Music & Advisor of Jay Z for Tidal</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-[#4475F2]">Stephen Budd:</span>
-                <span className="text-gray-500">Artist and Producer Manager - ex-Chairman Music Managers Forum</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <TeamSection />
 
         {/* Investment Details Section */}
         <div className="bg-[#0A1445] rounded-3xl p-8 text-white">
@@ -202,8 +202,9 @@ export default function Page() {
         </div>
       </div>
 
-      {/* Deck Section */}
-      <div className="mt-8">
+      {/* Deck Section and Right Sections */}
+      <div className="mt-8 grid grid-cols-1 lg:grid-cols-[2fr,1fr] gap-8">
+        {/* Deck Section */}
         <div className="bg-white rounded-3xl p-8 shadow-sm">
           <h2 className="text-xl text-gray-500 mb-8">Deck</h2>
           <div className="relative">
@@ -244,54 +245,54 @@ export default function Page() {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Star Investors & KPIs Section */}
-      <div className="space-y-8">
-        {/* Star Investors */}
-        <div className="bg-white rounded-3xl p-8 shadow-sm">
-          <h2 className="text-xl text-gray-500 mb-6">Star investors</h2>
-          <ul className="space-y-4 text-gray-600">
-            <li className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-[#4475F2] rounded-full"></div>
-              The African star Fally Ipupa's manager
-            </li>
-            <li className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-[#4475F2] rounded-full"></div>
-              Janet Jackson's advisor
-            </li>
-            <li className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-[#4475F2] rounded-full"></div>
-              A French international at the Real Madrid
-            </li>
-            <li className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-[#4475F2] rounded-full"></div>
-              An agency representing top talent
-            </li>
-          </ul>
-        </div>
+        {/* Right Side Sections */}
+        <div className="space-y-8">
+          {/* Star Investors */}
+          <div className="bg-white rounded-3xl p-8 shadow-sm">
+            <h2 className="text-xl text-gray-500 mb-6">Star investors</h2>
+            <ul className="space-y-4 text-gray-600">
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-[#4475F2] rounded-full"></div>
+                The African star Fally Ipupa's manager
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-[#4475F2] rounded-full"></div>
+                Janet Jackson's advisor
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-[#4475F2] rounded-full"></div>
+                A French international at the Real Madrid
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-[#4475F2] rounded-full"></div>
+                An agency representing top talent
+              </li>
+            </ul>
+          </div>
 
-        {/* News & KPIs */}
-        <div className="bg-white rounded-3xl p-8 shadow-sm">
-          <h2 className="text-xl text-gray-500 mb-6">News & KPIs</h2>
-          <div className="space-y-4">
-            <div className="text-gray-600">
-              <p className="mb-4">Key partnerships in development with major industry players: Sacem, TikTok, SoundCloud, and Believe/Tunecore</p>
-              <p>International recognition: Ranked this year among the most promising startups by the Wallifornia conference, a European leader in music tech</p>
-            </div>
-            
-            <div className="grid grid-cols-3 gap-4 pt-6">
-              <div className="text-center">
-                <div className="text-[#4475F2] text-2xl font-medium">13 billion</div>
-                <div className="text-gray-500 text-sm">dollars market</div>
+          {/* News & KPIs */}
+          <div className="bg-white rounded-3xl p-8 shadow-sm">
+            <h2 className="text-xl text-gray-500 mb-6">News & KPIs</h2>
+            <div className="space-y-4">
+              <div className="text-gray-600">
+                <p className="mb-4">Key partnerships in development with major industry players: Sacem, TikTok, SoundCloud, and Believe/Tunecore</p>
+                <p>International recognition: Ranked this year among the most promising startups by the Wallifornia conference, a European leader in music tech</p>
               </div>
-              <div className="text-center">
-                <div className="text-[#4475F2] text-2xl font-medium">Freemium</div>
-                <div className="text-gray-500 text-sm">Business model</div>
-              </div>
-              <div className="text-center">
-                <div className="text-[#4475F2] text-2xl font-medium">+100M</div>
-                <div className="text-gray-500 text-sm">artists in 2028</div>
+              
+              <div className="grid grid-cols-3 gap-4 pt-6">
+                <div className="text-center">
+                  <div className="text-[#4475F2] text-2xl font-medium">13 billion</div>
+                  <div className="text-gray-500 text-sm">dollars market</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-[#4475F2] text-2xl font-medium">Freemium</div>
+                  <div className="text-gray-500 text-sm">Business model</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-[#4475F2] text-2xl font-medium">+100M</div>
+                  <div className="text-gray-500 text-sm">artists in 2028</div>
+                </div>
               </div>
             </div>
           </div>
