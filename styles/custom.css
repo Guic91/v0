@@ -1,0 +1,127 @@
+/* Custom styles for Flag Finance inspired design */
+.rounded-3xl {
+  border-radius: 24px;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Button styles */
+.rounded-full {
+  border-radius: 9999px;
+}
+
+/* Investment details styles */
+.bg-[#0A1445] {
+  background-color: #0A1445;
+}
+
+/* Team member image styles */
+.rounded-full {
+  border-radius: 50%;
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+/* Text styles */
+.text-[#4475F2] {
+  color: #4475F2;
+}
+
+/* Hover effects */
+.hover\:bg-[#4475F2]\/90:hover {
+  background-color: rgba(68, 117, 242, 0.9);
+}
+
+.hover\:bg-red-500\/5:hover {
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+/* Layout styles */
+.grid-cols-[1fr,1fr,400px] {
+  grid-template-columns: 1fr 1fr 400px;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .grid-cols-1 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Transitions */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Custom styles inspired by Flag Finance */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(-45deg, #0A0F1F, #1A1F2F, #2A2F3F);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #4475F2, #6C8FFF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(to right, #4475F2, #6C8FFF);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Modern Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
